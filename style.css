@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    src:  url(./fonts/RobotoMono-VariableFont_wght.woff2) format("woff2"),
+          url(./fonts/RobotoMono-VariableFont_wght.woff) format("woff"),
+          url(./fonts/RobotoMono-VariableFont_wght.otf) format("otf"),
+          url(./fonts/RobotoMono-VariableFont_wght.ttf) format("ttf");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+  }
+  
+  html {
+    width:100vw;
+    overflow-x:hidden;
+    font-family: 'Roboto Mono', monospace;
+  } 
+  
+  .page__title {
+    width: auto;
+    padding: 1vw 0;
+    border-bottom: 0.1rem solid black;
+  }
+  
+  .accordion {
+    max-width: 90%;
+    margin: 2vw auto;
+  }
+  
+  .accordion__item {
+    padding: 0.5rem;
+    border-bottom: 0.1rem solid black;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .accordion__label {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    flex-direction: column;
+  }
+  
+  .accordion__text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  
+  .plus-button {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 1s ease-in-out;
+  }
+  
+  .accordion__img {
+    height: 0;
+    width: auto;
+    object-fit: contain;
+    transition: all 1s ease-in-out;
+  }
+  
+  .accordion__input:checked ~ label .accordion__img {
+    height: 40vw;
+  }
+  
+  .accordion__input:checked ~ label .plus-button {
+    transform: rotate(45deg);
+  }
+  
+  @media screen and (hover: hover) {
+    .accordion__item:hover .plus-button {
+      transform: rotate(45deg);
+    }
+  
+    .accordion__item:hover .accordion__img {
+      height: 40vw;
+    }
+  
+    .accordion__item:hover .accordion__text,
+    .accordion__label  {
+      color: #364ef9;
+    }
+  
+    .accordion:hover .accordion__label,
+    input[type='radio']:checked ~ .accordion__label{
+      color: black;
+    }
+  
+    .plus-button {
+      display: none;
+    }
+  
+    .accordion:hover .plus-button {
+      display: block;
+    }
+  
+    @media screen and (min-width: 768px){
+      .accordion__item:hover .accordion__img {
+        height: 30vw;
+      }
+      .accordion__input:checked ~ label .accordion__img {
+        height: 30vw;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 375px){
+    .accordion {
+      max-width: 60%;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .accordion {
+      max-width: 50%;
+    }
+  
+    .plus-button {
+      width: 1.75rem;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) {
+    .accordion {
+      max-width: 40%;
+    }
+  
+    input[type='radio']:checked ~label .accordion__img {
+      height: 20vw;
+      }
+    .accordion__item:hover .accordion__img {
+      height: 20vw;
+    }
+  }
